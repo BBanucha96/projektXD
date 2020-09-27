@@ -39,14 +39,14 @@ namespace WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "WorkersList API",
+                    Title = "WebAPI",
                     Version = "v1",
-                    Description = "ASP.NET Core Web API for WorkersList aplication",
+                    Description = "ASP.NET Core Web API",
                     Contact = new OpenApiContact
                     {
                         Name = "Github",
                         Email = string.Empty,
-                        Url = new Uri("https://github.com/mgjda/WorkersList"),
+                        Url = new Uri("https://localhost:44336/swagger/index.html"),
                     }
                 });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
