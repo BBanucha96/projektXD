@@ -1,0 +1,42 @@
+@import '../../styles.scss';
+
+.wrapper
+{
+  display: grid;
+  grid-template-columns: repeat(12, minmax(50px, 140px));
+  gap: 20px;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+
+  .form-window{
+    height: 430px;
+    width: 100%;
+    background-color: rgba($input-color, 0.1);
+    border-radius: 80px;
+    border: 2px solid $input-color;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 40px;
+
+      input, button{
+        width: 75%;
+        margin-bottom: 20px;
+      }
+
+      .btn-login{
+        background-color: $primary-color;
+      }
+
+      p span {
+        color: $primary-color;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+}
+
+
+
