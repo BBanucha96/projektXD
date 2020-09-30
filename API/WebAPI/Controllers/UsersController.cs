@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
         /// <returns>A newly created TodoItem</returns>
         /// <response code="401">If user is not in database</response>
         /// <response code="200">If user is in database</response>
-        [HttpGet, Authorize]
+        [HttpGet, /*Authorize*/]
         public IEnumerable<User> Get()
         {
             return _context.Users.ToList();
