@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using WebAPI.Models;
@@ -28,7 +29,7 @@ namespace WebAPI.Controllers
         /// <returns>A newly created TodoItem</returns>
         /// <response code="401">If user is not in database</response>
         /// <response code="200">If user is in database</response>
-        [HttpGet, /*Authorize*/]
+        [HttpGet, Authorize]
         public IEnumerable<User> Get()
         {
             return _context.Users.ToList();
@@ -36,7 +37,7 @@ namespace WebAPI.Controllers
         /// <summary>
         /// Get one user by id.
         /// </summary>
-        [HttpGet("{id}"), /*Authorize*/]
+        [HttpGet("{id}"), Authorize]
         public User GetOne(int id)
         {
             return _context.Users.SingleOrDefault(m => m.Id == id);
