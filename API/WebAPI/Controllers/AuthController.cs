@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
         ///
         ///     POST /Auth/login
         ///     {
-        ///        "userName": "user",
+        ///        "emailAdress": "user@test.com",
         ///        "password": "user"
         ///     }
         ///
