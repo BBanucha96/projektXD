@@ -1,8 +1,10 @@
-<div class="wrapper">
-  <div class="form-window col-5 col-e-9">
-    <input class="email-input" id="email" placeholder="Email">
-    <input class="password-input" id="password" placeholder="Hasło">
-    <button class="btn-login">Zaloguj</button>
-    <p>Nie masz jeszcze konta? <span>Zarejestruj się</span></p>
+<form #loginForm = "ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <div class="wrapper">
+    <div class="form-window col-5 col-e-9">
+      <input class="email-input" id="email" name="emailAdress" ngModel placeholder="Email">
+      <input class="password-input" id="password" name="password" ngModel placeholder="Hasło">
+      <button class="btn-login">Zaloguj</button>
+      <p>Nie masz jeszcze konta? <span>Zarejestruj się</span></p>
+    </div>
   </div>
-</div>
+</form>

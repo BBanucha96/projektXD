@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "projektXD"
+    }
+  },
+  "defaultProject": "projektXD",
+  "cli": {
+    "analytics": false
+  }
 }
