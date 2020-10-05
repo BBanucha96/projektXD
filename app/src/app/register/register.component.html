@@ -1,10 +1,10 @@
-<form #loginForm = "ngForm" (ngSubmit)="onSubmit(loginForm)">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="wrapper">
     <div class="form-window col-5 col-e-9">
       <input class="email-input" id="email" name="emailAdress" ngModel placeholder="Email">
       <input class="password-input" id="password" name="password" ngModel placeholder="Hasło">
-      <button class="btn-login">Zaloguj</button>
-      <p>Nie masz jeszcze konta? <span routerLink="/register">Zarejestruj się</span></p>
+      <button class="btn-login">Zarejestruj</button>
+      <p>Masz już konto? <span routerLink="/login">Zaloguj się</span></p>
     </div>
   </div>
 </form>

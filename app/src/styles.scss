@@ -1,29 +1,39 @@
-@import 'style/.grid';
+@import "style/.grid";
 
 $primary-color: #47a025;
 $input-color: #f7f7f2;
 $b1-color: #222725;
 $b2-color: #171b19;
 
-*{
+* {
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
   color: $input-color;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(50px, 140px));
+  gap: 20px;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+}
 
-body{
-    background-color: $b1-color;
-    height:100%;
-    app-root{
-      height:100%;
-    }
+body {
+  background-image: url('assets/background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100%;
+  app-root {
+    height: 100%;
   }
+}
 
-
-input{
+input {
   height: 70px;
   display: block;
   border: 0;
@@ -34,12 +44,12 @@ input{
   padding-left: 5%;
 }
 
-input:focus{
+input:focus {
   border: 0;
   outline: 0;
 }
 
-button{
+button {
   border: 0;
   height: 70px;
   font-size: 16px;
@@ -47,8 +57,7 @@ button{
   cursor: pointer;
 }
 
-button:focus{
+button:focus {
   border: 0;
   outline: 0;
 }
-

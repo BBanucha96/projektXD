@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
+import { HomepageComponent } from './homepage/homepage.component';
+import { RegisterComponent } from './register/register.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -16,7 +18,9 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomepageComponent,
+    RegisterComponent
   ],
   imports: [
     JwtModule.forRoot({
