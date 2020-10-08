@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { apiUrl } from '../../global';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,6 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   invalidLogin = false;
-  private url = 'https://localhost:44336/';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm): void {
     const credentials = JSON.stringify(form.value);
     console.log(credentials);
-    this.http.post('https://localhost:44336/Auth/login', credentials, {
+    this.http.post(`${apiUrl}Auth/login`, credentials, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

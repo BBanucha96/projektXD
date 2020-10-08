@@ -1,8 +1,10 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="wrapper">
     <div class="form-window col-5 col-e-9">
-      <input class="email-input" id="email" name="emailAdress" ngModel placeholder="Email">
-      <input class="password-input" id="password" name="password" ngModel placeholder="Hasło">
+      <input id="email" name="emailAddress" ngModel placeholder="Email">
+      <input id="userName" name="userName" ngModel placeholder="Nazwa użytkownika">
+      <input id="password" name="password" ngModel placeholder="Hasło">
+      <input id="passwordRpt" name="passwordRpt" ngModel placeholder="Powtórz hasło">
       <button class="btn-login">Zarejestruj</button>
       <p>Masz już konto? <span routerLink="/login">Zaloguj się</span></p>
     </div>
