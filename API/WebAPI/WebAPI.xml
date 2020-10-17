@@ -22,6 +22,20 @@
              <response code="401">If user is not in database</response>
              <response code="200">If user is in database</response>
         </member>
+        <member name="M:WebAPI.Controllers.MatchesController.Get">
+             <summary>
+             Get list of matches.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /Matches
+            
+             </remarks>
+             <returns>List of matches</returns>
+             <response code="401">If data is not in database</response>
+             <response code="200">If data is in database</response>
+        </member>
         <member name="M:WebAPI.Controllers.UsersController.Get">
              <summary>
              Get list of users.
@@ -40,6 +54,34 @@
             <summary>
             Get one user by id.
             </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersMatchesController.Get">
+             <summary>
+             Get list of users matches.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /UsersMatches
+            
+             </remarks>
+             <returns>List of users matches</returns>
+             <response code="401">If data is not in database</response>
+             <response code="200">If data is in database</response>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersRanksController.Get">
+             <summary>
+             Get list of users ranks.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /UsersRanks
+            
+             </remarks>
+             <returns>List of users ranks</returns>
+             <response code="401">If data is not in database</response>
+             <response code="200">If data is in database</response>
         </member>
     </members>
 </doc>
