@@ -7,11 +7,13 @@ namespace WebAPI.Models
     [Table("UsersMatches")]
     public class UsersMatches
     {
+        [Key]
+        public int UsersMatchesId { get; set; }
         public int MatchId { get; set; }
         public int UserId { get; set; }
         public int BetScoreTeamA { get; set; }
         public int BetScoreTeamB { get; set; }
-        public int MatchScore { get; set; }
+        public string MatchScore { get; set; }
         
     }
 }
