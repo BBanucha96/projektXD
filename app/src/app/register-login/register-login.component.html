@@ -1,4 +1,8 @@
 <div class="wrapper">
+  <div class="logo-container col-5 col-e-9">
+    <img class="logo" src="../../assets/logo.png">
+    <h1 class="siteName">Nasza nazwa</h1>
+  </div>
   <ng-container *ngIf="isLoginForm">
     <app-login (formChange)="changeForm($event)" class="col-5 col-e-9 blurry-form"></app-login>
   </ng-container>
