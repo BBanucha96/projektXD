@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <ng-container *ngIf="isLoginForm">
+    <app-login (formChange)="changeForm($event)" class="col-5 col-e-9 blurry-form"></app-login>
+  </ng-container>
+  <ng-container *ngIf="!isLoginForm">
+    <app-register (formChange)="changeForm($event)" class="col-5 col-e-9 blurry-form"></app-register>
+  </ng-container>
+</div>

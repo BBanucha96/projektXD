@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RegisterComponent } from './register/register.component';
+import { RegisterLoginComponent } from './register-login/register-login.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -20,7 +21,8 @@ export function tokenGetter() {
     AppComponent,
     LoginComponent,
     HomepageComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterLoginComponent
   ],
   imports: [
     JwtModule.forRoot({

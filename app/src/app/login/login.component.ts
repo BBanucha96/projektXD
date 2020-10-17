@@ -1,5 +1,5 @@
 import { AppComponent } from './../app.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
@@ -11,6 +11,8 @@ import { apiUrl } from '../../global';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  @Output() formChange = new EventEmitter<boolean>();
 
   invalidLogin = false;
 
@@ -36,6 +38,12 @@ export class LoginComponent implements OnInit {
       console.log('logged successfully!');
     }, err => {
       this.invalidLogin = true;
+      console.log(err);
+      console.log(credentials);
     });
+  }
+
+  changeForm(): void{
+    this.formChange.emit(false);
   }
 }

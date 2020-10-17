@@ -1,12 +1,8 @@
-<div class="wrapper">
-  <div class="form-window col-5 col-e-9">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <input id="email" type="email" name="emailAddress" ngModel placeholder="Email">
-      <input id="userName" name="userName" ngModel placeholder="Nazwa użytkownika">
-      <input id="password" type="password" name="password" ngModel placeholder="Hasło">
-      <input id="passwordRpt" type="password" name="passwordRpt" ngModel placeholder="Powtórz hasło">
-      <button class="btn-register">Zarejestruj</button>
-      <p>Masz już konto? <span routerLink="/login">Zaloguj się</span></p>
-    </form>
-  </div>
-</div>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input id="email" type="email" name="emailAddress" ngModel placeholder="Email">
+    <input id="userName" name="userName" ngModel placeholder="Nazwa użytkownika">
+    <input id="password" type="password" name="password" ngModel placeholder="Hasło">
+    <input id="passwordRpt" type="password" name="passwordRpt" ngModel placeholder="Powtórz hasło">
+    <button class="btn-submit">Zarejestruj</button>
+    <p>Masz już konto? <span (click)="changeForm()">Zaloguj się</span></p>
+  </form>

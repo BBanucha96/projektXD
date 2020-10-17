@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  @Output() formChange = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -15,7 +17,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void{
+  }
 
+  changeForm(): void{
+    this.formChange.emit(true);
   }
 
 }

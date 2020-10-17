@@ -1,15 +1,11 @@
-@import "style/.grid";
-
-$primary-color: #47a025;
-$input-color: #f7f7f2;
-$b1-color: #222725;
-$b2-color: #171b19;
+@use "style/globalVariables";
+@import "style/grid";
 
 * {
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
-  color: $input-color;
+  color: globalVariables.$input-color;
   font-family: "Roboto", sans-serif;
 }
 
@@ -47,8 +43,8 @@ input {
   display: block;
   border: 0;
   border-radius: 35px;
-  background-color: $input-color;
-  color: rgba($b2-color, 0.4);
+  background-color: globalVariables.$input-color;
+  color: rgba(globalVariables.$b2-color, 0.4);
   font-size: 16px;
   padding-left: 5%;
 }
