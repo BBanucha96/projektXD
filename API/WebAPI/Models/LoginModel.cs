@@ -5,7 +5,7 @@ namespace WebAPI.Models
     public class LoginModel
     {
         [Required]
-        public string EmailAdress { get; set; }
+        public string EmailAddress { get; set; }
         [Required]
         public string Password { get; set; }
     }
