@@ -48,15 +48,15 @@ namespace WebAPI.Controllers
                 return BadRequest("Invalid client request");
             }
 
-            if (_context.Users.Any(m => m.EmailAdress == user.EmailAdress && m.Password == user.Password))
+            if (_context.Users.Any(m => m.EmailAddress == user.EmailAddress && m.Password == user.Password))
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, user.EmailAdress),
-                    new Claim(ClaimTypes.Role, _context.Users.Where(u => user.EmailAdress == u.EmailAdress ).Single().Type)
+                    new Claim(ClaimTypes.Name, user.EmailAddress),
+                    new Claim(ClaimTypes.Role, _context.Users.Where(u => user.EmailAddress == u.EmailAddress ).Single().Type)
                 };
 
                 var tokeOptions = new JwtSecurityToken(
@@ -68,7 +68,7 @@ namespace WebAPI.Controllers
                 );
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-                return Ok(new { Token = tokenString, uType = _context.Users.Where(u => user.EmailAdress == u.EmailAdress).Single().Type });
+                return Ok(new { Token = tokenString, uType = _context.Users.Where(u => user.EmailAddress == u.EmailAddress).Single().Type });
             }
             else
             {
