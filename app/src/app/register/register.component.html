@@ -1,8 +1,35 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <input id="email" type="email" name="emailAddress" ngModel placeholder="Email">
-    <input id="userName" name="userName" ngModel placeholder="Nazwa użytkownika">
-    <input id="password" type="password" name="password" ngModel placeholder="Hasło">
-    <input id="passwordRpt" type="password" name="passwordRpt" ngModel placeholder="Powtórz hasło">
-    <button class="btn-submit">Zarejestruj</button>
+    <input id="email" type="email" name="emailAddress" formControlName="emailAddress" ngModel placeholder="Email"
+    [className]="(registerFormControl.emailAddress.touched || submitted)
+    && registerFormControl.emailAddress.errors?.required
+    || registerFormControl.emailAddress.errors?.pattern ? 'input-error' : 'input-untouched'">
+
+    <input id="userName" name="userName" formControlName="userName" ngModel placeholder="Nazwa użytkownika"
+    [className]="(registerFormControl.userName.touched || submitted)
+    && registerFormControl.userName.errors?.required
+    || registerFormControl.userName.errors?.minlength
+    || registerFormControl.userName.errors?.maxlength
+    || registerFormControl.userName.errors?.pattern ? 'input-error' : 'input-untouched'">
+
+    <input id="password" type="password" name="password" formControlName="password" ngModel placeholder="Hasło"
+    [className]="(registerFormControl.password.touched || submitted)
+    && registerFormControl.password.errors?.required
+    || registerFormControl.password.errors?.minlength
+    || registerFormControl.password.errors?.maxlength
+    || registerFormControl.password.errors?.pattern ? 'input-error' : 'input-untouched'">
+
+    <input id="passwordRpt" type="password" name="passwordRpt" formControlName="passwordRpt" ngModel placeholder="Powtórz hasło"
+    [className]="(registerFormControl.passwordRpt.touched || submitted)
+    && registerFormControl.passwordRpt.errors?.required
+    || registerFormControl.passwordRpt.errors?.minlength
+    || registerFormControl.passwordRpt.errors?.maxlength
+    || registerFormControl.passwordRpt.errors?.minlength ? 'input-error' : 'input-untouched'">
+
+    <button type="submit" class="btn-submit">Zarejestruj</button>
     <p>Masz już konto? <span (click)="changeForm()">Zaloguj się</span></p>
   </form>
+
+  <!--<span class="text-error"
+      *ngIf="(registerFormControl.emailAddress.touched || submitted) && registerFormControl.emailAddress.errors?.required">
+      Podaj adres email
+    </span>-->
