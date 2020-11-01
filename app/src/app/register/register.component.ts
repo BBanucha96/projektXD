@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomvalidationService } from '../services/customvalidation.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,10 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private customValidator: CustomvalidationService
+    ) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -34,6 +38,9 @@ export class RegisterComponent implements OnInit {
           Validators.minLength(8),
           Validators.maxLength(50),
           Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]]
+    },
+    {
+      validator: this.customValidator.MatchPassword('password', 'passwordRpt'),
     });
   }
 
@@ -43,11 +50,15 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    console.table(this.registerForm.value);
+    if (this.registerForm.valid) {
+      console.table(this.registerForm.value);
+      // register post request method here
+    } else {
+      console.log('invalid');
+    }
   }
 
   changeForm(): void{
     this.formChange.emit(true);
   }
-
 }

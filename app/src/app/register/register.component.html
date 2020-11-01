@@ -23,13 +23,10 @@
     && registerFormControl.passwordRpt.errors?.required
     || registerFormControl.passwordRpt.errors?.minlength
     || registerFormControl.passwordRpt.errors?.maxlength
-    || registerFormControl.passwordRpt.errors?.minlength ? 'input-error' : 'input-untouched'">
+    || registerFormControl.passwordRpt.errors?.pattern
+    || registerFormControl.passwordRpt.errors?.passwordMismatch ? 'input-error' : 'input-untouched'">
 
     <button type="submit" class="btn-submit">Zarejestruj</button>
     <p>Masz już konto? <span (click)="changeForm()">Zaloguj się</span></p>
   </form>
 
-  <!--<span class="text-error"
-      *ngIf="(registerFormControl.emailAddress.touched || submitted) && registerFormControl.emailAddress.errors?.required">
-      Podaj adres email
-    </span>-->
