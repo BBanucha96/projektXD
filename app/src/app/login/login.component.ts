@@ -1,8 +1,7 @@
-import { AppComponent } from './../app.component';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { apiUrl } from '../../global';
 
 @Component({
@@ -13,15 +12,37 @@ import { apiUrl } from '../../global';
 export class LoginComponent implements OnInit {
 
   @Output() formChange = new EventEmitter<boolean>();
-
+  loginForm: FormGroup;
+  submitted = false;
   invalidLogin = false;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      emailAddress: ['', [
+        Validators.required,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      password: ['', [
+        Validators.required,
+        // Validators.minLength(8), <-- turned off, for testing purposes :)
+        Validators.maxLength(50)]]
+    });
   }
 
-  onSubmit(form: NgForm): void {
+  onSubmit(form: FormGroup): void {
+    this.submitted = true;
+    if (this.loginForm.valid) {
+      console.table(this.loginForm.value);
+      this.submitForm(form);
+    }
+  }
+
+  submitForm(form: FormGroup): void {
     const credentials = JSON.stringify(form.value);
     console.log(credentials);
     this.http.post(`${apiUrl}Auth/login`, credentials, {
@@ -43,7 +64,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  changeForm(): void{
+  get loginFormControl() {
+    return this.loginForm.controls;
+  }
+
+  changeForm(): void {
     this.formChange.emit(false);
   }
 }
