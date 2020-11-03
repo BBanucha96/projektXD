@@ -1,7 +1,19 @@
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-  <input id="email" type="email" name="emailAddress" ngModel placeholder="Email">
-  <input id="password" type="password" name="password" ngModel placeholder="Hasło">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+  <input id="email" type="email" name="emailAddress" formControlName="emailAddress" ngModel placeholder="Email"
+  [className]="(loginFormControl.emailAddress.touched || submitted)
+    && loginFormControl.emailAddress.errors?.required
+    || loginFormControl.emailAddress.errors?.pattern
+    ? 'input-error' : 'input-untouched'">
+  <input id="password" type="password" name="password" formControlName="password" ngModel placeholder="Hasło"
+  [className]="(loginFormControl.password.touched || submitted)
+    && loginFormControl.password.errors?.required
+    || loginFormControl.password.errors?.minlength
+    || loginFormControl.password.errors?.maxlength
+    ? 'input-error' : 'input-untouched'">
   <button class="btn-submit">Zaloguj</button>
   <p>Nie masz jeszcze konta? <span (click)="changeForm()">Zarejestruj się</span></p>
+<div *ngIf="submitted && invalidLogin">
+    <p>Niepoprawny login lub hasło</p>
+</div>
 </form>
 

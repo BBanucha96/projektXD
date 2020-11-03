@@ -49,10 +49,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.submitted = true;
     if (this.registerForm.valid) {
       console.table(this.registerForm.value);
-      // register post request method here
+      this.submitted = true;
     } else {
       console.log('invalid');
     }
