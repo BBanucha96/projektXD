@@ -1,0 +1,47 @@
+@use "globalVariables";
+@use "animations";
+
+button {
+  border: 0;
+  height: 70px;
+  font-size: 16px;
+  border-radius: 35px;
+  cursor: pointer;
+  background-color: globalVariables.$primary-color;
+}
+
+button:focus {
+  border: 0;
+  outline: 0;
+}
+
+button:disabled{
+  background-color: aquamarine;
+  color: black;
+}
+
+button.btn-busy{
+
+  .spinner{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    animation: busySpinner 1.2s infinite;
+
+    div{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px transparent solid;
+      border-radius: 50%;
+    }
+
+    .spin-1{
+      border-top-color: globalVariables.$input-color;
+    }
+
+    .spin-2{
+      border-bottom-color: globalVariables.$input-color;
+    }
+  }
+}
