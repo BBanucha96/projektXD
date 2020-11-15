@@ -42,5 +42,30 @@ namespace WebAPI.Controllers
         {
             return _context.Users.SingleOrDefault(m => m.Id == id);
         }
+        /// <summary>
+        /// Create user.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /User
+        ///     {
+        ///         "Username": "string",
+        ///         "Password": "string",
+        ///         "EmailAddress": "string",
+        ///     }
+        ///
+        /// </remarks>
+        /// <returns>A newly created User</returns>
+        /// <response code="401">Unauthorized request</response>
+        /// <response code="200">Worker created</response>
+        /// <response code="403">Request forbidden</response>
+        [HttpPost]
+        public bool Register([FromBody] User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            return true;
+        }
     }
 }
