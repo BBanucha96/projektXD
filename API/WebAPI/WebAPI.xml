@@ -55,6 +55,26 @@
             Get one user by id.
             </summary>
         </member>
+        <member name="M:WebAPI.Controllers.UsersController.Register(WebAPI.Models.User)">
+             <summary>
+             Create user.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /User
+                 {
+                     "Username": "string",
+                     "Password": "string",
+                     "EmailAddress": "string",
+                 }
+            
+             </remarks>
+             <returns>A newly created User</returns>
+             <response code="401">Unauthorized request</response>
+             <response code="200">Worker created</response>
+             <response code="403">Request forbidden</response>
+        </member>
         <member name="M:WebAPI.Controllers.UsersMatchesController.Get">
              <summary>
              Get list of users matches.
