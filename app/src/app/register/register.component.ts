@@ -81,7 +81,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  changeForm(): void{
+  changeForm(): void{ // function to change form displayed (login or register)
     this.formChange.emit(true);
   }
 }
