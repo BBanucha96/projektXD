@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { apiUrl } from '../../global';
 
 @Component({
@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
   onSubmit(form: FormGroup): void {
     this.isBusy = true;
     this.submitted = true;
-    if (this.loginForm.valid) {
-      console.table(this.loginForm.value);
+    if (form) {
+      console.table(form);
       this.submitForm(form);
     }
   }

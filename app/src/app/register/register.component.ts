@@ -1,4 +1,8 @@
+import { IUser } from './../models/iuser';
+import { UserService } from './../services/user.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomvalidationService } from '../services/customvalidation.service';
 
@@ -12,10 +16,12 @@ export class RegisterComponent implements OnInit {
   @Output() formChange = new EventEmitter<boolean>();
   registerForm: FormGroup;
   submitted = false;
+  newUser: IUser;
 
   constructor(
     private fb: FormBuilder,
-    private customValidator: CustomvalidationService
+    private customValidator: CustomvalidationService,
+    private registerUserService: UserService
     ) { }
 
   ngOnInit(): void {
@@ -30,14 +36,14 @@ export class RegisterComponent implements OnInit {
           Validators.pattern('^[a-zA-Z0-9]+([_-]?[a-zA-Z0-9])*$')]],
         password: ['', [
           Validators.required,
-          Validators.minLength(8),
+          /* Validators.minLength(8),
           Validators.maxLength(50),
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')*/]],
         passwordRpt: ['', [
           Validators.required,
-          Validators.minLength(8),
+          /* Validators.minLength(8),
           Validators.maxLength(50),
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]]
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')*/]]
     },
     {
       validator: this.customValidator.MatchPassword('password', 'passwordRpt'),
@@ -48,16 +54,34 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  onSubmit(): void {
+  onSubmit(form: FormGroup): void {
     if (this.registerForm.valid) {
-      console.table(this.registerForm.value);
       this.submitted = true;
+      this.submitForm(form);
     } else {
       console.log('invalid');
     }
   }
 
-  changeForm(): void{
+  submitForm(form: FormGroup): void {
+    console.log(form.value.emailAddress);
+    this.newUser = {
+      id : 0,
+      rank: '',
+      type: '',
+      emailAddress : form.value.emailAddress,
+      password : form.value.password,
+      username : form.value.userName,
+    };
+    this.registerUserService
+    .RegisterUser(this.newUser)
+    .subscribe(response => {
+      console.log(response);
+      console.log('poszło');
+    });
+  }
+
+  changeForm(): void{ // function to change form displayed (login or register)
     this.formChange.emit(true);
   }
 }
