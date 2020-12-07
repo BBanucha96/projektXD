@@ -11,7 +11,7 @@
     || loginFormControl.password.errors?.maxlength
     ? 'input-error' : 'input-untouched'">
   <button [disabled]="!loginForm.valid" [className]="isBusy ? 'btn-busy' : ''">
-    <p *ngIf='!isBusy'>
+    <p class="p2" *ngIf='!isBusy'>
       Zaloguj
     </p>
     <ng-container *ngIf='isBusy'>
@@ -21,9 +21,9 @@
       </div>
     </ng-container>
   </button>
-  <p>Nie masz jeszcze konta? <span (click)="changeForm()">Zarejestruj się</span></p>
+  <p class="p2">Nie masz jeszcze konta? <span (click)="changeForm()">Zarejestruj się</span></p>
 <div *ngIf="submitted && invalidLogin">
-    <p>Niepoprawny login lub hasło</p>
+    <p class="p2">Niepoprawny login lub hasło</p>
 </div>
 </form>
 

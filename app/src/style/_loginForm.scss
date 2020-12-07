@@ -18,7 +18,7 @@ form {
   }
 
   p span {
-    color: globalVariables.$primary-color;
+    color: globalVariables.$btn;
     font-weight: bold;
     cursor: pointer;
   }
@@ -29,7 +29,7 @@ form {
 }
 
 .input-correct{
-  border: 3px solid globalVariables.$primary-color;
+  border: 3px solid globalVariables.$primary;
 }
 
 .input-untouched{

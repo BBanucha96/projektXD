@@ -1,22 +1,21 @@
 @use "style/globalVariables";
 @import "style/buttons";
 @import "style/grid";
+@import "style/globalStyle";
 
 * {
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
-  color: globalVariables.$input-color;
-  font-family: "Roboto", sans-serif;
+  font-family: "Helvetica", sans-serif;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(50px, 140px));
-  gap: 20px;
-  justify-content: center;
-  align-content: stretch;
-  height: 100%;
+@font-face {
+  font-family: 'futura_md_btbold';
+  src: url('assets/futuraBT/futubd-webfont.woff2') format('woff2'),
+       url('assets/futuraBT/futubd-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 html, body {
@@ -32,25 +31,7 @@ app-root{
 }
 
 body {
-  background-image: url('assets/background.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+  background-color: globalVariables.$primary;
 }
 
-input {
-  height: 70px;
-  display: block;
-  border: 0;
-  border-radius: 35px;
-  background-color: globalVariables.$input-color;
-  color: rgba(globalVariables.$b2-color, 0.4);
-  font-size: 16px;
-  padding-left: 5%;
-}
-
-input:focus {
-  border: 0;
-  outline: 0;
-}
 

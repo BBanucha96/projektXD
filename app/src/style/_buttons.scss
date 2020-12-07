@@ -7,7 +7,11 @@ button {
   font-size: 16px;
   border-radius: 35px;
   cursor: pointer;
-  background-color: globalVariables.$primary-color;
+  background-color: globalVariables.$btn;
+}
+
+button:active{
+  background-color: globalVariables.$btn-active;;
 }
 
 button:focus {
@@ -16,8 +20,7 @@ button:focus {
 }
 
 button:disabled{
-  background-color: aquamarine;
-  color: black;
+  background-color: globalVariables.$btn-inactive;
 }
 
 button.btn-busy{
@@ -37,11 +40,11 @@ button.btn-busy{
     }
 
     .spin-1{
-      border-top-color: globalVariables.$input-color;
+      border-top-color: globalVariables.$secondary;
     }
 
     .spin-2{
-      border-bottom-color: globalVariables.$input-color;
+      border-bottom-color: globalVariables.$secondary;
     }
   }
 }

@@ -1,0 +1,66 @@
+@use "globalVariables";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(50px, 140px));
+  gap: 20px;
+  justify-content: center;
+  align-content: stretch;
+  height: 100vh;
+}
+
+input {
+  height: 70px;
+  display: block;
+  border: 0;
+  border-radius: 35px;
+  background-color: globalVariables.$input;
+  color: rgba(globalVariables.$secondary, 0.4);
+  font-size: 16px;
+  padding-left: 5%;
+}
+
+input:focus {
+  border: 0;
+  outline: 0;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: 'futura_md_btbold';
+  font-weight: bold;
+  color: globalVariables.$input;
+}
+
+h1{
+  font-size: 67px;
+}
+
+h2{
+  font-size: 51px;
+}
+
+h3{
+  font-size: 38px;
+}
+
+h4{
+  font-size: 28px;
+}
+
+h5{
+  font-size: 21px;
+}
+
+p{
+  font-size: 25px;
+  color: globalVariables.$input;
+}
+
+.p1{
+  font-size: 25px;
+}
+
+.p2{
+  font-size: 19px;
+}
+
